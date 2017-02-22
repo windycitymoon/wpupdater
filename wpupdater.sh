@@ -9,7 +9,7 @@ echo "Hello $USER, let's update this WordPress install!"
 #http://www.linuxquestions.org/questions/linux-general-1/store-multi-line-output-into-an-array-in-a-linux-bash-script-706878/
 
 #Create a new time stamped branch
-$(wp status) || { echo "command failed; please execute this in a valid WP root directory"; exit 1; }
+$(wp core is-installed) || { echo "command failed; please execute this in a valid WP root directory"; exit 1; }
 
 # if $(wp core is-installed); then
 #   git pull
@@ -17,7 +17,7 @@ $(wp status) || { echo "command failed; please execute this in a valid WP root d
 # fi
 
 git pull
-git checkout -b $NOW-wp-updates
+git checkout -b $NOW-plugin-updates
 
 #Returns array of plugins needing updates
 WP_LIST=( $(wp plugin list --field=name --update=available))
