@@ -2,14 +2,19 @@
 
 clear
 NOW=$(date +"%d-%b-%Y")
-echo "Hello $USER, Let's update WordPress!"
+echo "Hello $USER, let's update this WordPress install!"
 
 #How to store bash to array
 #http://www.linuxquestions.org/questions/linux-general-1/store-multi-line-output-into-an-array-in-a-linux-bash-script-706878/
 
 #Create a new time stamped branch
-git pull
-git checkout -b $NOW-wp-updates
+if $(wp core is-installed); then
+  git pull
+  git checkout -b $NOW-wp-updates
+fi
+
+#git pull
+#git checkout -b $NOW-wp-updates
 
 #Returns array of plugins needing updates
 WP_LIST=( $(wp plugin list --field=name --update=available))
