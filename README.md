@@ -1,7 +1,7 @@
 ### Simple Plugin Updater
 This is a simple bash script that runs all available plugin, theme, and core updates for a WordPress site, with some nice benefits.
-* Each Update is placed in a unique GIT commit.  
-* All of the commits are made on a new timestamped GIT branch.
+* Each Update is placed in a unique Git commit.  
+* All of the commits are made on a new timestamped Git branch.
 
 ### How to Install
 * Must be run from within the Wordpress project's root folder.
