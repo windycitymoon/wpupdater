@@ -11,11 +11,6 @@ echo "Hello $USER, let's update this WordPress install!"
 #Create a new time stamped branch
 $(wp core is-installed) || { echo "command failed; please execute this in a valid WP root directory"; exit 1; }
 
-# if $(wp core is-installed); then
-#   git pull
-#   git checkout -b $NOW-wp-updates
-# fi
-
 git pull
 git checkout -b $NOW-plugin-updates
 
@@ -28,6 +23,7 @@ UPDATE_COUNT=$(wp plugin list --update=available --format=count)
 #Set incrementer
 i="0"
 
+# Install Updates Loop
 while [ $i -lt $UPDATE_COUNT ]
 	do
 		wp plugin update ${WP_LIST[$i]}
@@ -39,11 +35,11 @@ done
 #Update Factory Themes
 wp theme update --all
 git add -A
-git commit -m "update default themes"
+git commit -m "update any installed default WordPress themes"
 
 #Update to latest WP Core Version
 wp core update
 git add --all
-git commit -m "update WP Core to latest version"
+git commit -m "update WordPress Core to latest version"
 
 echo "WPupdater script is now complete!"
