@@ -10,7 +10,7 @@ echo "Hello $USER, Let's update WordPress!"
 
 #Create a new time stamped branch
 git pull
-git checkout -b $date-patching
+git checkout -b $NOW-wp-updates
 
 #Returns array of plugins needing updates
 WP_LIST=( $(wp plugin list --field=name --update=available))
