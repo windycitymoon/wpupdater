@@ -1,7 +1,6 @@
 #! /bin/bash
 
 clear
-
 NOW=$(date +"%d-%b-%Y")
 echo "Hello $USER, Let's update WordPress!"
 
