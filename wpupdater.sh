@@ -37,6 +37,11 @@ wp theme update --all
 git add -A
 git commit -m "update any installed default WordPress themes"
 
+#Update Translations
+wp core language update
+git add --all
+git commit -m "update all translations"
+
 #Update to latest WP Core Version
 wp core update
 git add --all
